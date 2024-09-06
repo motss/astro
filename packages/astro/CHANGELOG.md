@@ -1,5 +1,32 @@
 # astro
 
+## 5.0.0-alpha.5
+
+### Minor Changes
+
+- [#11875](https://github.com/withastro/astro/pull/11875) [`a8a3d2c`](https://github.com/withastro/astro/commit/a8a3d2cde813d891dd9c63f07f91ce4e77d4f93b) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Adds a new property `isPrerendered` to the globals `Astro` and `APIContext` . This boolean value represents whether or not the current page is prerendered:
+
+  ```astro
+  ---
+  // src/pages/index.astro
+
+  export const prerender = true;
+  ---
+  ```
+
+  ```js
+  // src/middleware.js
+
+  export const onRequest = (ctx, next) => {
+    console.log(ctx.prerender); // it will log true
+    return next();
+  };
+  ```
+
+### Patch Changes
+
+- [#11927](https://github.com/withastro/astro/pull/11927) [`5b4e3ab`](https://github.com/withastro/astro/commit/5b4e3abbb152146b71c1af05d33c96211000b2a6) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Updates the `env` configuration reference docs to include a full API reference for `envField`.
+
 ## 5.0.0-alpha.4
 
 ### Major Changes
